@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Form</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'basic.css' %}" />
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("hamburger_menu");
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        } else {
+          menu.style.display = "block";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="nav">
+      <button
+        onclick="window.location.href='{% url 'home' %}' "
+        style="font-weight: bold"
+      >
+        Home
+      </button>
+      <button onclick="window.location.href='{% url 'signin' %}'">
+        Sign In
+      </button>
+      <button onclick="window.location.href='{% url 'signup' %}'">
+        Sign Up
+      </button>
+    </div>
+
+    <h1>Fill your resume details</h1>
+
+    {% if errors %}
+    <h3>Spelling Errors:</h3>
+    <ul>
+      {% for original, correction in errors %}
+      <li>{{ original }} -> {{ correction }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data" target="_blank">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

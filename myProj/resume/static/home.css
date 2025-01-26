@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to bottom right, lightgreen, pink);
+}
+.shiny-button {
+  background: linear-gradient(145deg, #ff5f6d, #ffc371, #ffefba);
+  border: none;
+  border-radius: 50px;
+  padding: 15px 40px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  left: 40%;
+  animation: fadeIn 2s;
+}
+
+.shiny-button:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.shiny-button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+}
+
+.shiny-button:hover::before {
+  top: -80%;
+  left: -80%;
+  transition: all 0.5s;
+}
+
+.signInOrSignUp {
+  border-radius: 5px;
+  background-color: #adf802;
+  cursor: pointer;
+}
+.signInOrSignUp :hover {
+  font-weight: bold;
+}
+
+#heading {
+  animation: fadeInDown 2s;
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

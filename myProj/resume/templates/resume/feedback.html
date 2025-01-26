@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback</title>
+  </head>
+  <body>
+    <h1>Your Resume Feedback</h1>
+
+    {% for section, result in feedback.items %}
+    <h3>{{ section|capfirst }}:</h3>
+    <p>{{ result }}</p>
+    {% endfor %}
+
+    <a href="{% url 'submit_form' %}">Go back to the form</a>
+  </body>
+</html>

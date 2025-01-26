@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Resume</title>
+        {% load static %}
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="{% static 'basic.css' %}"
+        />
+        <style>
+          h1 {
+            color: red;
+          }
+          p {
+            color: blue;
+          }
+        </style>
+        <script>
+          function hideButton() {
+            document.getElementById("downloadButton").style.display = "none";
+          }
+        </script>
+      </head>
+      <body>
+        <h1>Your Resume</h1>
+        <p>Name: {{ form.name }}</p>
+        <p>Email: {{ form.email }}</p>
+        <p>Phone: {{ form.phone }}</p>
+        <p>Skills: {{ form.skills }}</p>
+
+        {% comment %}
+        <p>Photo:</p>
+        {% if form.image %}
+        <img
+          src="{{ form.image.url }}"
+          alt="Uploaded Photo"
+          style="max-width: 150px"
+        />
+        {% else %}
+        <p>No image uploaded.</p>
+        {% endif %} {% endcomment %}
+
+        <p>Experience: {{ form.experience}}</p>
+        <p>Certifications: {{ form.certifications }}</p>
+        <p>Education: {{ form.education}}</p>
+
+        <form
+          action="{% url 'generate_pdf' %}"
+          method="get"
+          onsubmit="hideButton()"
+        >
+          <button type="submit" id="downloadButton">Download PDF</button>
+        </form>
+      </body>
+    </html>
+  </head>
+</html>

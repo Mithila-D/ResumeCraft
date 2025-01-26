@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose Your Profile</title>
+    <style>
+      /* Basic styling for body */
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f9;
+      }
+
+      /* Heading styling */
+      .heading {
+        font-size: 48px;
+        font-weight: bold;
+        color: #1e1e1e;
+        text-align: center;
+        margin-bottom: 40px;
+        font-family: "Orbitron", sans-serif;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+      }
+
+      /* Container for images and buttons */
+      .container {
+        display: flex;
+        flex-wrap: wrap; /* Ensure wrapping on smaller screens */
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        padding: 20px;
+      }
+
+      /* Image and button group */
+      .image-button {
+        text-align: center;
+        flex-basis: 250px; /* Ensure each item takes a specific width */
+      }
+
+      /* Style for images with 3D shadow */
+      .image {
+        width: 100%; /* Make image fit container */
+        height: auto;
+        max-width: 250px; /* Limit maximum size */
+        border-radius: 8px;
+        box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.5); /* 3D shadow */
+      }
+
+      /* Style for buttons */
+      .button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 25px;
+        font-size: 18px;
+        color: #fff;
+        background-color: #1e1e1e;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease;
+      }
+
+      /* Button hover effect */
+      .button:hover {
+        background-color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Heading -->
+    <div class="heading">CHOOSE YOUR PROFILE</div>
+
+    <!-- Container for images and buttons -->
+    <div class="container">
+      <!-- First image with button -->
+      <div class="image-button">
+        <img src="/media/fresher.png" alt="Fresher" class="image" />
+        <a href="{% url 'submit_form' %}" class="button">I am Fresher</a>
+      </div>
+
+      <!-- Second image with button -->
+      <div class="image-button">
+        <img src="/media/Proffessional.png" alt="Professional" class="image" />
+        <a href="{% url 'submit_form' %}" class="button"
+          >I Have Professional Experience</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

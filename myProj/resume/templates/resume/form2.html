@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Form</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <style>
+      .popup {
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 10px;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        z-index: 1000;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Resume Builder Form</h1>
+
+    <form
+      action="{% url 'submit_form' %}"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Checker</button>
+    </form>
+
+    <form
+      id="hidden_form"
+      action="{% url 'resume2' %}"
+      method="post"
+      style="display: none"
+    >
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit" style="display: none">Check Fields</button>
+    </form>
+
+    <form
+      id="hidden_form2"
+      action="{% url 'resume3' %}"
+      method="post"
+      style="display: none"
+    >
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit" style="display: none">Preview</button>
+    </form>
+
+    <!-- New button to trigger hidden form submission -->
+    <button type="button" onclick="submitToResume2()">Check Fields</button>
+    <button type="button" onclick="submitToResume3()">Preview</button>
+
+    <div id="feedback">
+      {% if feedback.missing_skills %}
+      <h2>Missing Skills:</h2>
+      <p>suggested:</p>
+      <p></p>
+      <p>
+        Technical skills: data analysis, machine learning, statistics, big data,
+        predictive modeling, data visualization, deep learning, NLP, data
+        wrangling, data mining Tools and libraries: Python, R, SQL, TensorFlow,
+        Keras, scikit-learn, Apache Spark, Hadoop, Pandas, NumPy, Jupyter
+        Notebook, Tableau, Power BI, D3.js Soft skills: critical thinking,
+        problem-solving, attention to detail, communication, collaboration,
+        adaptability, analytical mindset, continuous learning Achievements:
+        internships, certifications, volunteering, academic projects, team
+        player, eager to learn, entry-level, basic knowledge, enthusiasm,
+        foundation skills
+      </p>
+
+      <p></p>
+      <ul>
+        {% for skill in feedback.missing_skills %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% if feedback.spelling_errors %}
+      <h2>Spelling Errors:</h2>
+      <ul>
+        {% for error in feedback.spelling_errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Show a popup if there are missing skills or spelling errors
+        {% if feedback.missing_skills %}
+        alert("Missing Skills:\n{{ feedback.missing_skills|join:', ' }}");
+        {% endif %}
+
+        {% if feedback.spelling_errors %}
+        alert("Spelling Errors:\n{{ feedback.spelling_errors|join:', ' }}");
+        {% endif %}
+      });
+
+      // JavaScript function to submit the hidden form
+      function submitToResume2() {
+        // Trigger the hidden form submission
+        document.getElementById('hidden_form').submit();
+      }
+
+
+
+      function submitToResume3() {
+        // Trigger the hidden form submission
+        document.getElementById('hidden_form2').submit();
+      }
+    </script>
+  </body>
+</html>

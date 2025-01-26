@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Details</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      h2 {
+        margin-top: 20px;
+      }
+      .resume-section {
+        margin-bottom: 20px;
+      }
+      .resume-section label {
+        font-weight: bold;
+      }
+      .resume-section p {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Resume Details</h1>
+
+    <div class="resume-section">
+      <label for="name">Your Name:</label>
+      <p>{{ form.name.value }}</p>
+    </div>
+
+    <div class="resume-section">
+      <label for="email">Email:</label>
+      <p>{{ form.email.value }}</p>
+    </div>
+
+    <div class="resume-section">
+      <label for="phone">Phone Number:</label>
+      <p>{{ form.phone.value }}</p>
+    </div>
+
+    <div class="resume-section">
+      <label for="skills">Skills:</label>
+      <p>{{ form.skills.value }}</p>
+    </div>
+
+    <div class="resume-section">
+      <label for="experience">Experience:</label>
+      <p>{{ form.experience.value }}</p>
+    </div>
+
+    <div class="resume-section">
+      <label for="certifications">Certifications:</label>
+      <p>{{ form.certifications.value }}</p>
+    </div>
+
+    <div class="resume-section">
+      <label for="education">Education:</label>
+      <p>{{ form.education.value }}</p>
+    </div>
+
+    <div class="resume-section">
+      <label for="technical_skills">Technical Skills:</label>
+      <p>{{ form.technical_skills.value }}</p>
+    </div>
+
+    <div class="resume-section">
+      <label for="tools_and_libraries">Tools and Libraries:</label>
+      <p>{{ form.tools_and_libraries.value }}</p>
+    </div>
+
+    <div class="resume-section">
+      <label for="soft_skills">Soft Skills:</label>
+      <p>{{ form.soft_skills.value }}</p>
+    </div>
+
+    <div class="resume-section">
+      <label for="achievements">Achievements:</label>
+      <p>{{ form.achievements.value }}</p>
+    </div>
+
+    <div class="resume-section">
+      <label for="job_role">Job Role:</label>
+      <p>{{ form.job_role.value }}</p>
+    </div>
+
+    <div class="resume-section">
+      <label for="experience_level">Experience Level:</label>
+      <p>{{ form.experience_level.value }}</p>
+    </div>
+  </body>
+</html>

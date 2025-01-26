@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Keywords Explorer</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ece9e6, #ffffff);
+        color: #333;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #ffffff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2rem;
+        color: #007acc;
+        margin-bottom: 20px;
+      }
+
+      .roles-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        list-style: none;
+        padding: 0;
+      }
+
+      .roles-list li {
+        background: #007acc;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .roles-list li:hover {
+        background: #005f99;
+      }
+
+      .content {
+        display: none;
+        margin-top: 20px;
+      }
+
+      .content.active {
+        display: block;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        color: #444;
+        margin-top: 20px;
+        border-bottom: 2px solid #007acc;
+        display: inline-block;
+      }
+
+      .skills-list {
+        margin: 10px 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .skills-list li {
+        background: #007acc;
+        color: #ffffff;
+        padding: 10px 15px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-size: 0.9rem;
+      }
+
+      .btn-submit {
+        display: inline-block;
+        background-color: #007acc;
+        color: white;
+        padding: 10px 20px;
+        font-size: 1rem;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .btn-submit:hover {
+        background-color: #005f99;
+        transform: translateY(-3px);
+      }
+
+      .btn-submit:active {
+        background-color: #00477f;
+        transform: translateY(1px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Job Keywords Explorer</h1>
+
+      <!-- Job Roles -->
+      <ul class="roles-list">
+        <li onclick="showRole('fullStack')">Full-Stack Developer</li>
+        <li onclick="showRole('frontEnd')">Front-End Developer</li>
+        <li onclick="showRole('dataScientist')">Data Scientist</li>
+        <li onclick="showRole('softwareDeveloper')">Software Developer</li>
+        <li onclick="showRole('businessAnalyst')">Business Analyst</li>
+      </ul>
+
+      <!-- Full-Stack Developer -->
+      <div id="fullStack" class="content">
+        <h2>Full-Stack Developer</h2>
+        <h3>Technical Skills</h3>
+        <ul class="skills-list">
+          <li>Full-Stack Development</li>
+          <li>RESTful APIs</li>
+          <li>Database Management</li>
+          <li>Cloud Computing</li>
+          <li>Server-Side Programming</li>
+          <li>Web Security</li>
+          <li>Scalability</li>
+        </ul>
+        <h3>Tools and Libraries</h3>
+        <ul class="skills-list">
+          <li>JavaScript</li>
+          <li>Node.js</li>
+          <li>React</li>
+          <li>Express</li>
+          <li>MongoDB</li>
+          <li>PostgreSQL</li>
+          <li>MySQL</li>
+          <li>Docker</li>
+          <li>Kubernetes</li>
+          <li>AWS</li>
+          <li>Azure</li>
+          <li>Google Cloud</li>
+          <li>Git</li>
+          <li>GraphQL</li>
+          <li>TypeScript</li>
+        </ul>
+        <h3>Soft Skills</h3>
+        <ul class="skills-list">
+          <li>Problem-Solving</li>
+          <li>Adaptability</li>
+          <li>Collaboration</li>
+          <li>Communication</li>
+          <li>Time Management</li>
+          <li>Attention to Detail</li>
+        </ul>
+        <h3>Achievements</h3>
+        <ul class="skills-list">
+          <li>Successful App Deployments</li>
+          <li>Cross-Functional Project Work</li>
+          <li>API Integration Projects</li>
+          <li>Certifications in Full-Stack Development</li>
+          <li>Open-Source Contributions</li>
+        </ul>
+      </div>
+
+      <!-- Front-End Developer -->
+      <div id="frontEnd" class="content">
+        <h2>Front-End Developer</h2>
+        <h3>Technical Skills</h3>
+        <ul class="skills-list">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>User Interface Design</li>
+          <li>Responsive Design</li>
+          <li>UX/UI</li>
+          <li>SEO</li>
+          <li>Web Accessibility</li>
+          <li>Cross-Browser Compatibility</li>
+          <li>User-Centric Design</li>
+        </ul>
+        <h3>Tools and Libraries</h3>
+        <ul class="skills-list">
+          <li>React</li>
+          <li>Vue.js</li>
+          <li>Angular</li>
+          <li>Bootstrap</li>
+          <li>Sass</li>
+          <li>Figma</li>
+          <li>Sketch</li>
+          <li>Adobe XD</li>
+          <li>Webpack</li>
+          <li>Babel</li>
+          <li>Git</li>
+          <li>Photoshop</li>
+          <li>Illustrator</li>
+        </ul>
+        <h3>Soft Skills</h3>
+        <ul class="skills-list">
+          <li>Creativity</li>
+          <li>Attention to Detail</li>
+          <li>Communication</li>
+          <li>Adaptability</li>
+          <li>Problem-Solving</li>
+          <li>Time Management</li>
+        </ul>
+        <h3>Achievements</h3>
+        <ul class="skills-list">
+          <li>Portfolio of Design Projects</li>
+          <li>Successful Website Launches</li>
+          <li>UI/UX Certifications</li>
+          <li>Contributions to Design Systems</li>
+          <li>Recognition for Design Aesthetics</li>
+        </ul>
+      </div>
+
+      <!-- Data Scientist -->
+      <div id="dataScientist" class="content">
+        <h2>Data Scientist</h2>
+        <h3>Technical Skills</h3>
+        <ul class="skills-list">
+          <li>Data Analysis</li>
+          <li>Machine Learning</li>
+          <li>Statistics</li>
+          <li>Big Data</li>
+          <li>Predictive Modeling</li>
+          <li>Data Visualization</li>
+          <li>Deep Learning</li>
+          <li>NLP</li>
+          <li>Data Wrangling</li>
+          <li>Data Mining</li>
+        </ul>
+        <h3>Tools and Libraries</h3>
+        <ul class="skills-list">
+          <li>Python</li>
+          <li>R</li>
+          <li>SQL</li>
+          <li>TensorFlow</li>
+          <li>Keras</li>
+          <li>scikit-learn</li>
+          <li>Apache Spark</li>
+          <li>Hadoop</li>
+          <li>Pandas</li>
+          <li>NumPy</li>
+          <li>Jupyter Notebook</li>
+          <li>Tableau</li>
+          <li>Power BI</li>
+          <li>D3.js</li>
+        </ul>
+        <h3>Soft Skills</h3>
+        <ul class="skills-list">
+          <li>Critical Thinking</li>
+          <li>Problem-Solving</li>
+          <li>Attention to Detail</li>
+          <li>Communication</li>
+          <li>Collaboration</li>
+          <li>Adaptability</li>
+          <li>Analytical Mindset</li>
+          <li>Continuous Learning</li>
+        </ul>
+        <h3>Achievements</h3>
+        <ul class="skills-list">
+          <li>Published Research</li>
+          <li>Data Competition Participation</li>
+          <li>ML Model Deployment</li>
+          <li>Patent Contributions</li>
+          <li>Conference Presentations</li>
+          <li>Top Kaggle Scores</li>
+        </ul>
+      </div>
+
+      <!-- Software Developer -->
+      <div id="softwareDeveloper" class="content">
+        <h2>Software Developer</h2>
+        <h3>Technical Skills</h3>
+        <ul class="skills-list">
+          <li>Software Design</li>
+          <li>Object-Oriented Programming</li>
+          <li>Agile Development</li>
+          <li>Debugging</li>
+          <li>System Testing</li>
+          <li>API Integration</li>
+        </ul>
+        <h3>Tools and Libraries</h3>
+        <ul class="skills-list">
+          <li>Java</li>
+          <li>C#</li>
+          <li>Python</li>
+          <li>Git</li>
+          <li>Jira</li>
+          <li>Linux</li>
+          <li>Visual Studio</li>
+          <li>IntelliJ IDEA</li>
+          <li>Spring Framework</li>
+        </ul>
+        <h3>Soft Skills</h3>
+        <ul class="skills-list">
+          <li>Teamwork</li>
+          <li>Time Management</li>
+          <li>Communication</li>
+          <li>Attention to Detail</li>
+          <li>Creativity</li>
+          <li>Adaptability</li>
+          <li>Collaborative Mindset</li>
+          <li>Continuous Improvement</li>
+        </ul>
+        <h3>Achievements</h3>
+        <ul class="skills-list">
+          <li>Open-Source Contributions</li>
+          <li>Hackathon Participation</li>
+          <li>Certifications</li>
+          <li>Side Projects</li>
+          <li>Personal Portfolio</li>
+          <li>Technical Leadership</li>
+        </ul>
+      </div>
+
+      <!-- Business Analyst -->
+      <div id="businessAnalyst" class="content">
+        <h2>Business Analyst</h2>
+        <h3>Technical Skills</h3>
+        <ul class="skills-list">
+          <li>Analytics</li>
+          <li>Data Visualization</li>
+          <li>Stakeholder Engagement</li>
+          <li>Problem-Solving</li>
+          <li>Requirement Analysis</li>
+          <li>Project Management</li>
+          <li>Reporting</li>
+          <li>Business Case Development</li>
+        </ul>
+        <h3>Tools and Libraries</h3>
+        <ul class="skills-list">
+          <li>Excel</li>
+          <li>Power BI</li>
+          <li>SQL</li>
+          <li>Tableau</li>
+          <li>Jira</li>
+          <li>Confluence</li>
+          <li>Microsoft Project</li>
+          <li>Visio</li>
+          <li>Google Analytics</li>
+          <li>SPSS</li>
+          <li>SAS</li>
+          <li>Qlik</li>
+        </ul>
+        <h3>Soft Skills</h3>
+        <ul class="skills-list">
+          <li>Analytical Thinking</li>
+          <li>Communication</li>
+          <li>Stakeholder Management</li>
+          <li>Adaptability</li>
+          <li>Strategic Thinking</li>
+          <li>Negotiation</li>
+          <li>Presentation Skills</li>
+        </ul>
+        <h3>Achievements</h3>
+        <ul class="skills-list">
+          <li>Project Completions</li>
+          <li>Certifications in Business Analysis</li>
+          <li>Recognition Awards</li>
+          <li>Process Improvements</li>
+          <li>Successful Project Delivery</li>
+        </ul>
+      </div>
+    </div>
+    <a href="{% url 'home' %}" class="btn-submit">Go to Home</a>
+
+    <script>
+      function showRole(roleId) {
+        const contents = document.querySelectorAll(".content");
+        contents.forEach((content) => content.classList.remove("active"));
+        const selectedContent = document.getElementById(roleId);
+        if (selectedContent) selectedContent.classList.add("active");
+      }
+    </script>
+  </body>
+</html>

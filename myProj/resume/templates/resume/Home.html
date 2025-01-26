@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'basic.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}" />
+
+    <style>
+      h1 {
+        font-size: 60px;
+        color: white;
+        text-shadow: 2px 2px 3px black, 0 0 25px greenyellow, 0 0 5px green;
+        font-weight: bold;
+        text-align: center;
+        animation: fadeInDown 2s;
+      }
+      .shiny-button {
+        transition: background 0.3s;
+        animation: fadeInUp 2.5s;
+      }
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hamburger_menu {
+        color: black;
+      }
+      .btn-submit {
+        display: inline-block;
+        background-color: yellow;
+        color: coral;
+        padding: 10px 20px;
+        font-size: 1rem;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .btn-submit:hover {
+        background-color: red;
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      .btn-submit:active {
+        background-color: purple;
+        transform: translateY(1px);
+      }
+    </style>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("hamburger_menu");
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        } else {
+          menu.style.display = "block";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="nav">
+      <button
+        onclick="window.location.href='{% url 'home' %}' "
+        style="font-weight: bold; background-color: pink"
+      >
+        Home
+      </button>
+
+      {% comment %} {% if user.is_authenticated %}
+      <button onclick="window.location.href='{% url 'logout' %}'">
+        Logout
+      </button>
+      {% else %} {% endcomment %}
+      <button onclick="window.location.href='{% url 'signin' %}'">
+        Sign In
+      </button>
+      <button onclick="window.location.href='{% url 'signup' %}'">
+        Sign Up
+      </button>
+      {% comment %} {% endif %} {% endcomment %}
+
+      <div class="hamburger" onclick="toggleMenu()">
+        <div class="hamburger_bar"></div>
+        <div class="hamburger_bar"></div>
+        <div class="hamburger_bar"></div>
+      </div>
+
+      <div class="hamburger_menu" id="hamburger_menu">
+        <p class="hamburger_menu hamburger_username">Welcome</p>
+      </div>
+    </div>
+
+    <br /><br /><br />
+    <h1>Welcome To Resume Builder And Checker</h1>
+    <br /><br /><br />
+    <br /><br /><br />
+    <button class="shiny-button">
+      <a
+        style="
+          text-decoration: none;
+          color: white;
+          font-weight: bold;
+          text-shadow: black;
+        "
+        >PD 5 - Resume</a
+      >
+    </button>
+    <br /><br /><br />
+    <br /><br /><br />
+    {% comment %} {% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}!</p>
+    {% else %} {% endcomment %}
+    <button
+      onclick="window.location.href='{% url 'signin' %}'"
+      class="signInOrSignUp"
+    >
+      Sign In
+    </button>
+    <button
+      onclick="window.location.href='{% url 'signup' %}'"
+      class="signInOrSignUp"
+    >
+      Sign Up
+    </button>
+    {% comment %} {% endif %} {% endcomment %}
+    <a href="{% url 'manual' %}" class="btn-submit">Manual</a>
+    <br /><br /><br />
+    <div class="footer">PD-5</div>
+  </body>
+</html>

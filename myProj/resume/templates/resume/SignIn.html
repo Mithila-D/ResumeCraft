@@ -1,0 +1,115 @@
+{% comment %} {% load static %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'basic.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'SignIn.css' %}" />
+
+    <style>
+      h2 {
+        font-size: 60px;
+        color: white;
+        text-shadow: 2px 2px 3px black, 0 0 35px skyblue, 0 0 7px blue;
+        font-weight: bold;
+        text-align: center;
+        animation: fadeInDown 2s;
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("hamburger_menu");
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        } else {
+          menu.style.display = "block";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="nav">
+      <button
+        onclick="window.location.href='{% url 'home' %}' "
+        style="font-weight: bold"
+      >
+        Home
+      </button>
+      <button
+        onclick="window.location.href='{% url 'signin' %}' "
+        style="background-color: pink"
+      >
+        Sign In
+      </button>
+      <button onclick="window.location.href='{% url 'signup' %}'">
+        Sign Up
+      </button>
+
+      <!--__________________________________________-->
+
+      <div class="hamburger" onclick="toggleMenu()">
+        <div class="hamburger_bar"></div>
+        <div class="hamburger_bar"></div>
+        <div class="hamburger_bar"></div>
+      </div>
+
+      <div class="hamburger_menu" id="hamburger_menu">
+        <p class="hamburger_username">Username</p>
+      </div>
+
+      <!--____________________________________-->
+    </div>
+    <br /><br /><br />
+    <div class="container">
+      <h2>Sign In</h2>
+
+      {% if messages %}
+      <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <div ="form_container">
+        <form method="POST" action="{% url 'signin' %}">
+          {% csrf_token %}
+          <div>
+            <label for="UserName">UserName:</label>
+            <input type="text" id="UserName" name="UserName" required />
+          </div>
+          <div>
+            <label for="Password">Password:</label>
+            <input type="Password" id="Password" name="Password" required />
+          </div>
+          <div>
+            <button type="submit" class="submit">Sign In</button>
+          </div>
+        </form>
+      </div>
+      <p>
+        UserName: apple<br />
+        Password: apple123*
+      </p>
+      <p>
+        Don't have an account?
+        <a href="{% url 'signup' %}">Sign up here</a>
+      </p>
+    </div>
+
+    <div class="footer">PD-5</div>
+  </body>
+</html>
