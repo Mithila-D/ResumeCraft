@@ -47,7 +47,7 @@ ResumeCraft is an advanced Resume Builder and Checker platform developed by our 
 
 ## Technologies Used
 - **Backend:** Django
-- **Frontend:** JavaScript,HTML,CSS
+- **Frontend:** JavaScript (in html page itself),HTML,CSS
 - **Machine Learning:** TF-IDF, Cosine Similarity
 
 ## Challenges Addressed
