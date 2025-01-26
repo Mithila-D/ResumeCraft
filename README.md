@@ -63,4 +63,4 @@ ResumeCraft is an advanced Resume Builder and Checker platform developed by our 
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/resumecraft.git
+   git clone https://github.com/Mithila-D/ResumeCraft
